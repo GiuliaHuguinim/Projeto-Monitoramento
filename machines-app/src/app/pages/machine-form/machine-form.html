@@ -1,0 +1,26 @@
+<h2>Cadastrar Nova Máquina</h2>
+<form (ngSubmit)="onSubmit()" class="machine-form">
+  <div class="form-group">
+    <label for="name">Nome da Máquina:</label>
+    <input id="name" type="text" [(ngModel)]="machine.name" name="name" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="location">Localização:</label>
+    <input id="location" type="text" [(ngModel)]="machine.location" name="location" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="status">Status:</label>
+    <select id="status" [(ngModel)]="machine.status" name="status">
+      <option value="Ativo">Ativo</option>
+      <option value="Manutenção">Manutenção</option>
+      <option value="Inativo">Inativo</option>
+    </select>
+  </div>
+  
+  <div class="form-actions">
+    <button type="submit" class="btn-primary">Salvar</button>
+    <a routerLink="/dashboard" class="btn-secondary">Cancelar</a>
+  </div>
+</form>

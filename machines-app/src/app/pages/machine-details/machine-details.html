@@ -1,0 +1,37 @@
+<div *ngIf="machine; else loadingTemplate" class="machine-details">
+  <h2>Detalhes da Máquina</h2>
+  
+  <div class="detail-card">
+    <div class="detail-row">
+      <strong>ID:</strong>
+      <span>{{ machine.id }}</span>
+    </div>
+    
+    <div class="detail-row">
+      <strong>Nome:</strong>
+      <span>{{ machine.name }}</span>
+    </div>
+    
+    <div class="detail-row">
+      <strong>Localização:</strong>
+      <span>{{ machine.location }}</span>
+    </div>
+    
+    <div class="detail-row">
+      <strong>Status:</strong>
+      <span class="status-badge" [ngClass]="getStatusClass(machine.status)">
+        {{ machine.status }}
+      </span>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <a routerLink="/dashboard" class="btn-secondary">Voltar ao Dashboard</a>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading">
+    <p>Carregando...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,33 @@
+<h2>Dashboard de Máquinas</h2>
+<div class="actions">
+  <a routerLink="/machines/new" class="btn-primary">Cadastrar Nova Máquina</a>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Localização</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let machine of machines">
+      <td>{{ machine.name }}</td>
+      <td>{{ machine.location }}</td>
+      <td>
+        <span class="status-badge" [ngClass]="getStatusClass(machine.status)">
+          {{ machine.status }}
+        </span>
+      </td>
+      <td class="actions-cell">
+        <a [routerLink]="['/machines', machine.id]" class="btn-link">Ver Detalhes</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="machines.length === 0" class="no-data">
+  <p>Nenhuma máquina cadastrada.</p>
+</div>
